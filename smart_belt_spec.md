@@ -164,7 +164,7 @@ We consider all tiles the drag overlaps to be exactly one of the following:
 
 ### 2.5. Classification Rules
 
-Rules to put all tiles (and entities on them) into one of the tile types described above:
+Rules to put all entities into one of the tile types described above:
 
 #### 2.5.1. Transport Belts
 
@@ -174,7 +174,7 @@ Rules to put all tiles (and entities on them) into one of the tile types describ
 #### 2.5.2. Splitters (Including 1x1 Splitters)
 
 - **Different direction**: Obstacle.
-- **Same direction**: Follow accessibility rules.
+- **Otherwise**: Follow above accessibility rules.
 
 #### 2.5.3. Underground Belts
 
@@ -188,10 +188,7 @@ Rules to put all tiles (and entities on them) into one of the tile types describ
 
 #### 2.5.4. Tiles
 
-If there are otherwise no entities, there may be tiles that you cannot build on.
-These are either:
-- Normal obstacles
-- **impassable**: some tiles do not allow you to underground through them.
+Some tiles do not allow you to underground over them. These are always **impassable obstacles**.
 
 #### 2.5.5. Other
 
@@ -201,7 +198,7 @@ These are either:
 
 Goes into detail about dragging in a straight line, and traversing obstacles.
 
-### 3.1. The Jist
+### 3.1. The Gist
 
 Place valid underground belts over all obstacle. Integrating compatible belts, splitters, and pass-through undergrounds.
 Place new undergrounds over all obstacles, possibly replacing old entities with underground belts.
@@ -222,7 +219,7 @@ For every new tile dragged:
   - If the underground belt needs to be upgraded, check:
     - If the belt is downgraded, ensure that the belt is still able to connect to both ends. If not, report an error.
     - If the belt is up/downgraded, and there are any impassable underground belts inside, report an error; upgrading would change the pair! This ensures that you don't break belt weaving by upgrading.
-
+  - Otherwise, ignore everything else, until passing the exit underground belt.
   - If it's not possible to place a new entity past the exit underground belt, report an error.
 
 
@@ -368,7 +365,7 @@ Force is only different from normal ghost placement, in that rocks and trees are
 
 ### 5.4. SUPER force building
 
-If using super force, any potential obstacles (belt or otherwise) are deleted/force-integrated (rotated/upgraded); then treated as integrable belt for the rest of this spec.
+If using super force, any potential obstacles (belt or otherwise) are deleted/force-integrated (rotated/upgraded); then treated as integratable tiles for the rest of this spec.
 
 If you release super-force, future encountered entities are treated normally again.
 
