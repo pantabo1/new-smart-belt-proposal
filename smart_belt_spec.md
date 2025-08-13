@@ -250,7 +250,7 @@ What do do when we cannot continue:
 
 - If due to trying being unable to place/extend an underground belt, remove the underground belt entrance. This is so we don't side load/curve into anything.
 - If due to a pass-through underground we cannot upgrade, do not upgrade the underground belt.
-- IF the output is blocked, notify the player that "X is in the way."
+- If the output is blocked, notify the player that "X is in the way."
 
 ### 3.5. Placing Entities
 
